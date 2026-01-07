@@ -20,7 +20,7 @@ app.get('/health', (req, res) => {
 
 app.use('/api/v1', routes);
 
-app.all('/{*path}', (req, res, next) => {
+app.all('*', (req, res, next) => {
     next(new ApiError(404, `Cannot find ${req.originalUrl} on this server`));
 });
 
